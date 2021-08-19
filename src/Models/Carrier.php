@@ -65,6 +65,7 @@ final class Carrier extends Instance
     /**
      * @return Carrier[]
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public final function all(): array
     {
@@ -91,7 +92,11 @@ final class Carrier extends Instance
             )
         ) as $carrier) {
             $carriers[] = new Carrier(
-                array_merge($carrier, ['logo' => self::CDN_URL . "carrier-logos/{$carrier['logo_id']}.svg"])
+                array_merge($carrier, [
+                    'logo' => self::CDN_URL . "carrier-logos/{$carrier['logo_id']}.svg",
+                    'collection_date' => self::getCollectionDate($carrier['available_dates']),
+                    'collection_time' => self::getCollectionTime($carrier['available_dates']),
+                ])
             );
         }
 
@@ -114,6 +119,15 @@ final class Carrier extends Instance
     }
 
     /**
+     * @return Carrier
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public final function first(): Carrier
+    {
+        return self::all()[0];
+    }
+
+    /**
      * @param array $data
      * @throws \MwSpace\Packlink\Exceptions\Handler
      */
@@ -124,6 +138,30 @@ final class Carrier extends Instance
         foreach ($data as $key => $value) {
             $this->$key = $value;
         }
+    }
+
+    /**
+     * @param array $available_dates
+     * @return int|string
+     */
+    private function getCollectionDate(array $available_dates)
+    {
+        return array_keys($available_dates)[0];
+    }
+
+    /**
+     * @param array $available_dates
+     * @return mixed
+     */
+    private function getCollectionTime(array $available_dates)
+    {
+        $date = self::getCollectionDate($available_dates);
+
+        return str_replace(' , ', '-',
+            str_replace(array('[', ']'), '',
+                $available_dates[$date]
+            )
+        );
     }
 
     /**
@@ -147,6 +185,7 @@ final class Carrier extends Instance
         $first_estimated_delivery_date,
         $url_terms_and_conditions,
         $base_price,
+        $available_dates,
         $transit_hours;
 
 }

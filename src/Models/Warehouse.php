@@ -36,6 +36,30 @@ final class Warehouse extends Instance
     }
 
     /**
+     * @return Warehouse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
+     */
+    public static function first(): Warehouse
+    {
+        return self::all()[0];
+    }
+
+    /**
+     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public static function default()
+    {
+
+        foreach (self::all() as $warehouse) {
+            if ($warehouse->default_selection) {
+                return $warehouse;
+            }
+        }
+    }
+
+    /**
      * @return Warehouse[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \MwSpace\Packlink\Exceptions\Handler
@@ -44,14 +68,11 @@ final class Warehouse extends Instance
     {
         $instance = new Instance;
 
-        /** @var  $warehouses Warehouse[] * */
-        $warehouses = [];
-
         foreach ($instance->response($instance->call("warehouses")) as $warehouse) {
-            $warehouses[] = new Warehouse($warehouse);
+            self::$collection[] = new Warehouse($warehouse);
         }
 
-        return $warehouses;
+        return self::$collection;
     }
 
     /**
@@ -60,7 +81,7 @@ final class Warehouse extends Instance
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \MwSpace\Packlink\Exceptions\Handler
      */
-    public function update(array $data = [])
+    public function update(array $data = []): Warehouse
     {
         $warehouse = array_replace_recursive(get_object_vars($this), $data);
 
@@ -116,6 +137,9 @@ final class Warehouse extends Instance
             $this->$key = $value;
         }
     }
+
+    /** @var  $collection Warehouse[] * */
+    private static $collection = [];
 
     /**
      * @var

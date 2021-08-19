@@ -90,3 +90,89 @@ array (size=16)
       'street1' => string 'Via Libero Temolo, 4, Appartamento Camera 107, - Proprietà aperta H24' (length=70)
       'surname' => string 'My Last Name' (length=12)
 ```
+
+```json
+{
+    "carrier": "TNT",
+    "service": "Express",
+    "service_id": 20945,
+    "collection_date": "2021/08/20",
+    "collection_time": "08:00-18:00",
+    "adult_signature": false,
+    "insurance": {
+        "amount": 350,
+        "insurance_selected": true
+    },
+    "print_in_store_selected": false,
+    "proof_of_delivery": false,
+    "additional_data": {
+        "zip_code_id_from": "pc_it_5369",
+        "zip_code_id_to": "pc_it_14929",
+        "postal_zone_name_from": "Italia",
+        "postal_zone_id_from": "113",
+        "selectedWarehouseId": "58c4b903-04c2-4f26-859c-bf512d768c0c",
+        "postal_zone_id_to": "113",
+        "postal_zone_name_to": "Italia",
+        "parcelIds": [
+            "custom-parcel-id",
+            "custom-parcel-id",
+            "custom-parcel-id"
+        ]
+    },
+    "content": "Elettronica",
+    "content_second_hand": false,
+    "contentvalue": 350,
+    "currency": "EUR",
+    "from": {
+        "city": "Arci",
+        "country": "IT",
+        "state": "Italia",
+        "zip_code": "00019",
+        "company": "MwSpace srl",
+        "email": "email@mwspace.com",
+        "name": "My First Name",
+        "phone": "0237901690",
+        "street1": "Via libero temolo, 4 - palace Regus",
+        "surname": "06073"
+    },
+    "packages": [
+        {
+            "height": 40,
+            "id": "custom-parcel-id",
+            "length": 40,
+            "name": "custom-parcel-id",
+            "weight": 5,
+            "width": 40
+        },
+        {
+            "height": 60,
+            "id": "custom-parcel-id",
+            "length": 60,
+            "name": "custom-parcel-id",
+            "weight": 15,
+            "width": 60
+        },
+        {
+            "height": 80,
+            "id": "custom-parcel-id",
+            "length": 80,
+            "name": "custom-parcel-id",
+            "weight": 25,
+            "width": 80
+        }
+    ],
+    "packlink_reference": "IT2021PRO0002918655",
+    "to": {
+        "city": "Corciano",
+        "country": "IT",
+        "state": "Italia",
+        "zip_code": "06073",
+        "email": "dev@mwspace.com",
+        "name": "MwSpace",
+        "phone": "02 3056 7684",
+        "street1": "Via Camillo Bozza, 14",
+        "surname": "llc"
+    }
+}
+```
+

@@ -12,27 +12,43 @@ use MwSpace\Packlink\Models\Warehouse;
 
 require __DIR__ . '/../../../../vendor/autoload.php';
 
-// create warehouse if not exist, later we use them for shipment.
 try {
+
+    // create warehouse if not exist, later we use them for shipment.
+    $warehouse = Warehouse::default() ?? Warehouse::create(require 'warehouse.php'); // load data dynamic method
 
     // create a fake parcels array
     $parcels = require 'parcels.php';
 
-    // quote carrier with sum of parcel's weight
+    // if u have a dimension, u can quote with a complete parcels
+    // $carriers = Carrier::ship($parcels);
+
+    // quote carrier with parcels weight sum
     $carriers = Carrier::quote(
         array_sum(array_column($parcels, 'weight'))
     );
 
-    dd($carriers->all());
+    $carriers->from(array( // get prices for parcels by zip code from => to
+        'country' => 'IT',
+        'zip' => '20900'
+    ));
+    $carriers->to(array(
+        'country' => 'IT',
+        'zip' => '06073'
+    ));
 
-    $warehouse = Warehouse::create(require 'warehouse.php'); // load data dynamic method
-//
+    // select first carrier | if u have a frontend, customer must choose by $carriers
+    $carrier = $carriers->first();
+
+//    dd($carrier);
+
+    // create our first shipment
     $shipment = Shipment::create(require 'shipment.php'); // load data dynamic method
 
+    echo json_encode($shipment);
+
 } catch (\MwSpace\Packlink\Exceptions\Handler $e) {
-    return $e->getMessage();
-
+    echo $e->getMessage();
 } catch (\GuzzleHttp\Exception\GuzzleException $e) {
-
-    return $e->getMessage();
+    echo $e->getMessage();
 }
