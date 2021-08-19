@@ -33,8 +33,8 @@ array:21 [▼
     "zi p_code" => "06129"
     "city" => "Perugia"
     "country" => "IT"
-    "phone" => "3927376305"
-    "email" => "alex@mwspace.com"
+    "phone" => "02 3056 7684"
+    "email" => "dev@mwspace.com"
   ]
   "to" => array:10 [▼
     "name" => "Aleksandr"
@@ -45,8 +45,8 @@ array:21 [▼
     "zip_code" => "06073"
     "city" => "Perugia"
     "country" => "IT"
-    "phone" => "3756652884"
-    "email" => "alex@mwspace.com"
+    "phone" => "02 3056 7684"
+    "email" => "dev@mwspace.com"
   ]
   "additional_data" => array:11 [▼
     "postal_zone_id_from" => null
@@ -105,8 +105,8 @@ array:21 [▼
         "zi p_code": "06129",
         "city": "Perugia",
         "country": "IT",
-        "phone": "3927376305",
-        "email": "alex@mwspace.com"
+        "phone": "02 3056 7684",
+        "email": "dev@mwspace.com"
     },
     "to": {
         "name": "Aleksandr",
@@ -117,8 +117,8 @@ array:21 [▼
         "zip_code": "06073",
         "city": "Perugia",
         "country": "IT",
-        "phone": "3756652884",
-        "email": "alex@mwspace.com"
+        "phone": "02 3056 7684",
+        "email": "dev@mwspace.com"
     },
     "additional_data": {
         "postal_zone_id_from": null,
