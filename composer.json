@@ -1,0 +1,38 @@
+{
+    "name": "mwspace/packlink-php",
+    "description": "Packlink Pro Php Api Sdk (shipping automation) | Php Library Model (Unofficial)",
+    "keywords": [
+        "packlink php",
+        "packlink php api",
+        "shipping php api",
+        "laravel packlink api",
+        "codeigniter packlink api",
+        "symfony packlink api",
+        "Yii Framework packlink api",
+        "CakePHP packlink api",
+        "Zend Framework packlink api"
+    ],
+    "homepage": "https://mwspace.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MwSpace llc, srl",
+            "email": "dev@mwspace.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^5.6|^7.3|^8.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "MwSpace\\": "src/",
+            "MwSpace\\Packlink\\": "src/"
+        }
+    }
+}
