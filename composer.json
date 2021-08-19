@@ -13,7 +13,7 @@
         "Zend Framework packlink api"
     ],
     "homepage": "https://mwspace.com",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "MwSpace llc, srl",

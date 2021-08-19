@@ -2,6 +2,12 @@
 
 > Small PHP library for use [Packlink PRO](https://pro.packlink.it/).
 
+[![Build Status](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)
+[![Latest Stable Version](https://poser.pugx.org/mwspace/packlink-php/v/stable.svg)](https://packagist.org/packages/mwspace/packlink-php)
+[![Total Downloads](https://poser.pugx.org/mwspace/packlink-php/downloads.svg)](https://packagist.org/packages/mwspace/packlink-php)
+[![License](https://poser.pugx.org/mwspace/packlink-php/license.svg)](https://packagist.org/packages/mwspace/packlink-php)
+[![Code Coverage](https://coveralls.io/repos/mwspace/packlink-php/badge.svg?branch=main)](https://coveralls.io/r/MwSpaceLLC/packlink-php?branch=master)
+
 PHP Version  | Status  | Require  | version
 ------------ | ------- | -------- | -------
 PHP >=7.0    | @Dev    | Composer | 2.0.0
