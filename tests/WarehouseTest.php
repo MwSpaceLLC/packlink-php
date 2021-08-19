@@ -37,7 +37,7 @@ class WarehouseTest extends TestCase
     {
         parent::setUp();
 
-        $this->api = \MwSpace\Packlink::setApiKey('22c02a04d2e3c81dfda47b858c982d92225a39c1977d3fcb691622bee10d9ba1');
+        $this->api = \MwSpace\Packlink::setApiKey(env('PACKLINK_API_KEY'));
     }
 
     public function testSetApiKey()

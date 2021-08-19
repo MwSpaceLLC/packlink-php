@@ -32,6 +32,7 @@ use MwSpace\Packlink\Models\Shipment;
 | Register The Auto Loader */
 require __DIR__ . '/../../../../vendor/autoload.php';
 
+\MwSpace\Packlink::setApiKey(env('PACKLINK_API_KEY'));
 
 try {
 
