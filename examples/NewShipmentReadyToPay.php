@@ -11,10 +11,12 @@
 |
 */
 
+use MwSpace\Packlink\Models\Warehouse;
+
 require __DIR__.'/../../../../vendor/autoload.php';
 
 // create warehouse if not exist, later we use them for shipment.
 
-$warehouse = \MwSpace\Packlink\Models\Warehouse::create([
+$warehouse = Warehouse::create([
 
 ])

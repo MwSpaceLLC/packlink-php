@@ -18,7 +18,7 @@ trait Http
      * @param string $endpoint
      * @param array $data
      * @return \Psr\Http\Message\ResponseInterface
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     protected final function post(string $endpoint, array $data = []): \Psr\Http\Message\ResponseInterface
     {
@@ -29,7 +29,7 @@ trait Http
      * @param string $endpoint
      * @param array $data
      * @return \Psr\Http\Message\ResponseInterface
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     protected final function put(string $endpoint, array $data = []): \Psr\Http\Message\ResponseInterface
     {
@@ -40,7 +40,7 @@ trait Http
      * @param string $endpoint
      * @param array $data
      * @return \Psr\Http\Message\ResponseInterface
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     protected final function remove(string $endpoint, array $data = []): \Psr\Http\Message\ResponseInterface
     {
@@ -52,7 +52,7 @@ trait Http
      * @param string $endpoint
      * @param array $data
      * @return \Psr\Http\Message\ResponseInterface
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     protected final function call(string $endpoint, array $data = []): \Psr\Http\Message\ResponseInterface
     {

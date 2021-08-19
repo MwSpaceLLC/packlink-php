@@ -18,8 +18,8 @@ final class Stat extends Instance
 
     /**
      * @return Stat
-//     * @throws \GuzzleHttp\Exception\GuzzleException
-//     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public static final function all(): Stat
     {
@@ -33,8 +33,8 @@ final class Stat extends Instance
     }
 
     /**
-     * @param array|null $data
-//     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * @param array $data
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public function __construct(array $data = [])
     {

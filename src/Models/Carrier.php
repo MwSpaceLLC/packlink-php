@@ -20,7 +20,7 @@ final class Carrier extends Instance
 
     /**
      * @param array $parcels
-     * @return $this
+     * @return Carrier
      */
     public static function ship(array $parcels): Carrier
     {
@@ -66,7 +66,7 @@ final class Carrier extends Instance
 
     /**
      * @return Carrier[]
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public final function all(): array
     {
@@ -103,6 +103,7 @@ final class Carrier extends Instance
     /**
      * @param $id
      * @return Carrier|void
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public final function find($id)
     {
@@ -114,18 +115,9 @@ final class Carrier extends Instance
         }
     }
 
-//    /**
-//     * @param $id
-//     * @return Carrier|void
-//     */
-//    public final function first($id)
-//    {
-//        return $this::find($id);
-//    }
-
     /**
-     * @param array|null $data
-     * throws \MwSpace\Packlink\Exceptions\Handler
+     * @param array $data
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public function __construct(array $data = [])
     {

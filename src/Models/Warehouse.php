@@ -21,8 +21,8 @@ final class Warehouse extends Instance
     /**
      * @param string $id
      * @return Warehouse
-     * throws \GuzzleHttp\Exception\GuzzleException
-     * throws \MwSpace\Packlink\Exceptions\Handler
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public final static function find(string $id): Warehouse
     {
@@ -37,8 +37,8 @@ final class Warehouse extends Instance
 
     /**
      * @return Warehouse[]
-     * throws \GuzzleHttp\Exception\GuzzleException
-     * throws \MwSpace\Packlink\Exceptions\Handler
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public static function all(): array
     {
@@ -56,9 +56,9 @@ final class Warehouse extends Instance
 
     /**
      * @param array $data
-     * @return mixed
-     * throws \GuzzleHttp\Exception\GuzzleException
-     * throws \MwSpace\Packlink\Exceptions\Handler
+     * @return Warehouse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public function update(array $data = [])
     {
@@ -73,7 +73,7 @@ final class Warehouse extends Instance
 
     /**
      * @return mixed
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function save()
     {
@@ -84,7 +84,7 @@ final class Warehouse extends Instance
 
     /**
      * @return mixed
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function delete()
     {
@@ -95,7 +95,7 @@ final class Warehouse extends Instance
 
     /**
      * @return mixed
-     * throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function setDefault()
     {
@@ -106,7 +106,7 @@ final class Warehouse extends Instance
 
     /**
      * @param array $data
-     * throws \MwSpace\Packlink\Exceptions\Handler
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public function __construct(array $data)
     {
