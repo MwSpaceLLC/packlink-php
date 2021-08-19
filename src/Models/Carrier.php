@@ -16,8 +16,6 @@ use MwSpace\Packlink\Traits\Model;
  */
 final class Carrier extends Instance
 {
-    use Model;
-
     /**
      * @param array $parcels
      * @return Carrier

@@ -13,7 +13,6 @@
  */
 trait Http
 {
-
     /**
      * @param string $endpoint
      * @param array $data
