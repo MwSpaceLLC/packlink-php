@@ -21,8 +21,8 @@ final class Shipment extends Instance
     /**
      * @param string $status
      * @return Shipment[]
-//     * @throws \GuzzleHttp\Exception\GuzzleException
-//     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * throws \GuzzleHttp\Exception\GuzzleException
+     * throws \MwSpace\Packlink\Exceptions\Handler
      */
     public static function all(string $status = 'all'): array
     {
@@ -45,8 +45,8 @@ final class Shipment extends Instance
     /**
      * @param $id
      * @return Shipment|void
-//     * @throws \GuzzleHttp\Exception\GuzzleException
-//     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * throws \GuzzleHttp\Exception\GuzzleException
+     * throws \MwSpace\Packlink\Exceptions\Handler
      */
     public static function find($id)
     {
@@ -61,7 +61,7 @@ final class Shipment extends Instance
 
     /**
      * @return mixed
-//     * @throws \GuzzleHttp\Exception\GuzzleException
+     * throws \GuzzleHttp\Exception\GuzzleException
      */
     public function save()
     {
@@ -73,8 +73,8 @@ final class Shipment extends Instance
     /**
      * @param array $data
      * @return mixed
-//     * @throws \GuzzleHttp\Exception\GuzzleException
-//     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * throws \GuzzleHttp\Exception\GuzzleException
+     * throws \MwSpace\Packlink\Exceptions\Handler
      */
     public function update(array $data = [])
     {
@@ -89,7 +89,7 @@ final class Shipment extends Instance
 
     /**
      * @return mixed
-//     * @throws \GuzzleHttp\Exception\GuzzleException
+     * throws \GuzzleHttp\Exception\GuzzleException
      */
     public function delete()
     {
@@ -100,7 +100,7 @@ final class Shipment extends Instance
 
     /**
      * @param array|null $data
-//     * @throws \MwSpace\Packlink\Exceptions\Handler
+     * throws \MwSpace\Packlink\Exceptions\Handler
      */
     public function __construct(array $data = null)
     {
