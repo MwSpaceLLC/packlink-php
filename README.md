@@ -7,9 +7,10 @@ PHP Version  | Status  | Require  | version
 PHP >=7.0    | @Dev    | Composer | 2.0.0
 
 [![Build Status](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)
-[![Latest Stable Version](https://poser.pugx.org/mwspace/packlink-php/v/stable.svg)](https://packagist.org/packages/mwspace/packlink-php)
-[![Total Downloads](https://poser.pugx.org/mwspace/packlink-php/downloads.svg)](https://packagist.org/packages/mwspace/packlink-php)
-[![Code Coverage](https://coveralls.io/repos/mwspace/packlink-php/badge.svg?branch=main)](https://coveralls.io/r/MwSpaceLLC/packlink-php?branch=master)
+[![Latest Stable Version](http://poser.pugx.org/mwspace/packlink-php/v)](https://packagist.org/packages/mwspace/packlink-php) 
+[![Total Downloads](http://poser.pugx.org/mwspace/packlink-php/downloads)](https://packagist.org/packages/mwspace/packlink-php) 
+[![Latest Unstable Version](http://poser.pugx.org/mwspace/packlink-php/v/unstable)](https://packagist.org/packages/mwspace/packlink-php)
+[![License](http://poser.pugx.org/mwspace/packlink-php/license)](https://packagist.org/packages/mwspace/packlink-php)
 
 ![image](https://user-images.githubusercontent.com/29952045/129723631-f52d3795-2033-4217-812b-46113256a62e.png)
 
