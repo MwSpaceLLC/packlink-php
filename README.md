@@ -22,6 +22,11 @@ place! Start enjoying Packlink PRO completely for free!
 Go to the settings page and request your Api Key (
 See [Api Key](https://pro.packlink.it/private/settings/api-key))
 
+### 🎉 See all [examples](https://github.com/MwSpaceLLC/packlink-php/tree/main/examples).
+
+You can see it works correctly in the code we wrote or if you want to test it you could include this file in your
+script. **PLEASE, SEE ALSO PHP UNIT TEST FOR MORE USAGE**
+
 #### 🐱‍🏍 Start Packlink Object:
 
 ```php
@@ -109,6 +114,17 @@ return json_encode($shipment); // decode Shipment object class to json
 
 The system will check the status of your order, reporting useful information such as the various tracking and couriers
 with collection and exchange points.
+
+### 📦 Where Shipment:
+
+```php
+use MwSpace\Packlink\Models\Shipment;
+
+$shipment = Shipment::where('status','READY_TO_PURCHASE');
+return json_encode($shipment); // decode Shipment object class to json
+```
+
+This is only BETA. see limitation per page, try at yourself
 
 ### 📦 Create Shipment:
 

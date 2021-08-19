@@ -1,18 +1,29 @@
 <?php namespace MwSpace\Packlink\Models;
 
 use MwSpace\Packlink\Instance;
-use MwSpace\Packlink\Traits\Model;
 
 /**
+ * @copyright 2021 | MwSpace llc, srl
+ * @package mwspace/packlink-php
+ * @author Aleksandr Ivanovitch
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  * This class was developed to connect PHP frameworks with the packlink pro
  * shipping system. This library is unofficial and uses the connection protocols
- * of the web api modules. No copyright infringement.
- * Released under MIT license by MwSpace llc, srl.
- * @package mwspace/packlink-php
- * @author Aleksandr Ivanovitch
- * @license   http://www.apache.org/licenses/LICENSE-2.0.txt  Apache License 2.0
- * @copyright 2021 MwSpace llc, srl
+ * of the cms. No copyright infringement.
+ * Released, developed and maintain by MwSpace llc, srl.
+ *
  */
 final class Carrier extends Instance
 {
@@ -69,13 +80,10 @@ final class Carrier extends Instance
      */
     public final function all(): array
     {
-        $instance = new Instance;
+        self::$instance = new Instance;
 
-        /** @var  $carriers Carrier[] * */
-        $carriers = [];
-
-        foreach ($instance->response(
-            $instance->call('services',
+        foreach (self::$instance->response(
+            self::$instance->call('services',
                 array(
                     'from' => self::$from,
                     'to' => self::$to,
@@ -91,26 +99,22 @@ final class Carrier extends Instance
                 )
             )
         ) as $carrier) {
-            $carriers[] = new Carrier(
-                array_merge($carrier, [
-                    'logo' => self::CDN_URL . "carrier-logos/{$carrier['logo_id']}.svg",
-                    'collection_date' => self::getCollectionDate($carrier['available_dates']),
-                    'collection_time' => self::getCollectionTime($carrier['available_dates']),
-                ])
+            self::$collect[] = new Carrier(
+                array_merge($carrier, ['logo' => self::CDN_URL . "carrier-logos/{$carrier['logo_id']}.svg"])
             );
         }
 
-        return $carriers;
+        return self::$collect;
     }
 
     /**
      * @param $id
      * @return Carrier|void
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public final function find($id)
     {
-
         foreach (self::all() as $carrier) {
             if ((string)$carrier->id === (string)$id) {
                 return $carrier;
@@ -121,6 +125,7 @@ final class Carrier extends Instance
     /**
      * @return Carrier
      * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
     public final function first(): Carrier
     {
@@ -140,29 +145,8 @@ final class Carrier extends Instance
         }
     }
 
-    /**
-     * @param array $available_dates
-     * @return int|string
-     */
-    private function getCollectionDate(array $available_dates)
-    {
-        return array_keys($available_dates)[0];
-    }
-
-    /**
-     * @param array $available_dates
-     * @return mixed
-     */
-    private function getCollectionTime(array $available_dates)
-    {
-        $date = self::getCollectionDate($available_dates);
-
-        return str_replace(' , ', '-',
-            str_replace(array('[', ']'), '',
-                $available_dates[$date]
-            )
-        );
-    }
+    /** @var  $collect Carrier[] * */
+    private static $collect = [];
 
     /**
      * @var

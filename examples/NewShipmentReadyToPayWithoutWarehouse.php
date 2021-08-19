@@ -2,7 +2,6 @@
 
 use MwSpace\Packlink\Models\Carrier;
 use MwSpace\Packlink\Models\Shipment;
-use MwSpace\Packlink\Models\Warehouse;
 
 /**
  * @copyright 2021 | MwSpace llc, srl
@@ -36,9 +35,6 @@ require __DIR__ . '/../../../../vendor/autoload.php';
 
 try {
 
-    // create warehouse if not exist, later we use them for shipment.
-    $warehouse = Warehouse::default() ?? Warehouse::create(require 'data/warehouse.php'); // load data dynamic method
-
     // create a fake parcels array
     $parcels = require 'data/parcels.php';
 
@@ -63,7 +59,7 @@ try {
     $carrier = $carriers->first();
 
     // create our first shipment
-    $shipment = Shipment::create(require 'data/shipment.php'); // load data dynamic method
+    $shipment = Shipment::create(require 'data/shipment_without_warehouse.php'); // load data dynamic method
 
     echo json_encode($shipment);
 

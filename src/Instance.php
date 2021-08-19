@@ -4,81 +4,52 @@ use MwSpace\Packlink\Exceptions\Handler;
 use MwSpace\Packlink\Traits\Http;
 
 /**
+ * @copyright 2021 | MwSpace llc, srl
+ * @package mwspace/packlink-php
+ * @author Aleksandr Ivanovitch
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  * This class was developed to connect PHP frameworks with the packlink pro
  * shipping system. This library is unofficial and uses the connection protocols
- * of the web api modules. No copyright infringement.
- * Released under MIT license by MwSpace llc, srl.
- * @package mwspace/packlink-php
- * @author Aleksandr Ivanovitch
- * @license   http://www.apache.org/licenses/LICENSE-2.0.txt  Apache License 2.0
- * @copyright 2021 MwSpace llc, srl
+ * of the cms. No copyright infringement.
+ * Released, developed and maintain by MwSpace llc, srl.
+ *
  */
 class Instance
 {
     use Http;
 
-    /** --------------------------------------------------------------------------
-     * | Class Setter
-     * @param string $language
-     * @return $this
+    /**
+     * @var string
      */
-    public function setLanguage(string $language): self
-    {
-        self::$LANGUAGE = $language;
+    protected
+        $platform = 'PRO',
+        $language = 'it_IT',
+        $platform_country = 'IT',
+        $source = 'module_prestashop';
 
-        return $this;
-    }
+
+    /** @var  $instance Instance * */
+    protected static $instance;
 
     /**
-     * @param string $source
-     * @return $this
-     */
-    public function setSource(string $source): self
-    {
-        self::$SOURCE = $source;
-
-        return $this;
-    }
-
-    /**
-     * @param string $platform
-     * @return $this
-     */
-    public function setPlatform(string $platform): self
-    {
-        self::$PLATFORM = $platform;
-
-        return $this;
-    }
-
-    /**
-     * @param string $platform_country
-     * @return $this
-     */
-    public function setPlatformCountry(string $platform_country): self
-    {
-        self::$PLATFORM_COUNTRY = $platform_country;
-
-        return $this;
-    }
-
-    /** --------------------------------------------------------------------------
-     * | Class $vars */
-    protected static
-        $LANGUAGE = 'it_IT',
-        $SOURCE = 'PRO',
-        $PLATFORM = 'PRO',
-        $PLATFORM_COUNTRY = 'IT';
-
-    /** --------------------------------------------------------------------------
-     * | Class const
-     * Packlink base API URL.
+     * Connection base url to packlink pro
      */
     protected const BASE_URL = 'https://api.packlink.com/';
 
     /**
-     * Packlink cdn API URL.
+     * Connection to cdn url to packlink pro
      */
     protected const CDN_URL = 'https://cdn.packlink.com/apps/';
 

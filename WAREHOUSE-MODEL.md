@@ -4,19 +4,34 @@
 
 These are the data that must be completed in order to have a warehouse saved in the packlink Pro backend.
 
-### 🎯 Model Warehouse:
+### 🎯 POST | Model Warehouse:
 
 ```php
-array (size=11)
-  'address' => string 'Via libero temolo, 4 - palace Regus' (length=35)
-  'alias' => string 'My New Warehouse' (length=16)
-  'city' => string 'Arci' (length=4)
-  'company' => string 'MwSpace srl' (length=11)
-  'country' => string 'IT' (length=2)
-  'email' => string 'email@mwspace.com' (length=17)
-  'id' => string '58c4b903-04c2-4f26-859c-bf512d768c0c' (length=36)
-  'name' => string 'My First Name' (length=13)
-  'phone' => string '0237901690' (length=10)
-  'postal_code' => string '00019' (length=5)
-  'surname' => string '06073' (length=5)
+array:9 [▼
+  "alias" => "MwSpace srl"
+  "name" => "Dev"
+  "surname" => "Team"
+  "company" => "MwSpace srl"
+  "country" => "IT"
+  "city" => "Milano"
+  "postal_code" => "20126"
+  "address" => "Via Libero Temolo, 4, 20126 Milano MI"
+  "phone" => "02 3056 7684"
+  "email" => "dev@mwspace.com"
+]
+```
+
+```json
+{
+    "alias": "MwSpace srl",
+    "name": "Dev",
+    "surname": "Team",
+    "company": "MwSpace srl",
+    "country": "IT",
+    "city": "Milano",
+    "postal_code": "20126",
+    "address": "Via Libero Temolo, 4, 20126 Milano MI",
+    "phone": "02 3056 7684",
+    "email": "dev@mwspace.com"
+}
 ```
