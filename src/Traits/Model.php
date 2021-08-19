@@ -19,7 +19,6 @@ trait Model
      * @param array $data
      * @return static
      * @throws Handler
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public static function create(array $data): self
     {
