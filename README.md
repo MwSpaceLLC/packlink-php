@@ -4,11 +4,11 @@
 
 PHP Version  | Status  | Require  | version
 ------------ | ------- | -------- | -------
-PHP >=7.0    | @Dev    | Composer | 2.0.0
+PHP >=7.0    | @Beta   | Composer | 2.0.0
 
 [![Build Status](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)
-[![Latest Stable Version](http://poser.pugx.org/mwspace/packlink-php/v)](https://packagist.org/packages/mwspace/packlink-php) 
-[![Total Downloads](http://poser.pugx.org/mwspace/packlink-php/downloads)](https://packagist.org/packages/mwspace/packlink-php) 
+[![Latest Stable Version](http://poser.pugx.org/mwspace/packlink-php/v)](https://packagist.org/packages/mwspace/packlink-php)
+[![Total Downloads](http://poser.pugx.org/mwspace/packlink-php/downloads)](https://packagist.org/packages/mwspace/packlink-php)
 [![Latest Unstable Version](http://poser.pugx.org/mwspace/packlink-php/v/unstable)](https://packagist.org/packages/mwspace/packlink-php)
 [![License](http://poser.pugx.org/mwspace/packlink-php/license)](https://packagist.org/packages/mwspace/packlink-php)
 
@@ -36,11 +36,16 @@ script. **PLEASE, SEE ALSO PHP UNIT TEST FOR MORE USAGE**
 #### 🐱‍🏍 Start Packlink Object:
 
 ```php
+\MwSpace\Packlink::setApiKey(env('YOUR_PACKLINK_API_KEY'));
+```
+
+#### 🐱‍🏍 Get all Status Dashboard:
+
+```php
 use MwSpace\Packlink\Models\Stat;
 
-\MwSpace\Packlink::setApiKey(env('YOUR_PACKLINK_API_KEY'));
-
 $states = Stat::all(); // get all shipments states
+
 return json_encode($states); // decode Stat object class to json
 ```
 
@@ -54,14 +59,17 @@ use MwSpace\Packlink\Models\Carrier;
 private $packages = [[]];
 
 $carriers = Carrier::ship($this->parcels);
+
 $carriers->from(array( // get prices for parcels by zip code from => to
     'country' => 'IT',
     'zip' => '20900'
 ));
+
 $carriers->to(array(
     'country' => 'IT',
     'zip' => '06073'
 ));
+
 return json_encode($carriers->all()); // decode Carrier object class to json
 ```
 
@@ -77,7 +85,7 @@ use MwSpace\Packlink\Models\Carrier;
 private $parcels = [[]];
 
 $carriers = Carrier::ship($this->parcels);
-// do staff
+
 return json_encode($carriers->find('YOUR_CARRIER_ID')); // decode Carrier object class to json
 ```
 
@@ -90,7 +98,17 @@ Please see all data needed at
 use MwSpace\Packlink\Models\Carrier;
 
 $carriers = Carrier::quote(8.5);
-// do staff
+
+$carriers->from(array( // get prices for parcels by zip code from => to
+    'country' => 'IT',
+    'zip' => '20900'
+));
+
+$carriers->to(array(
+    'country' => 'IT',
+    'zip' => '06073'
+));
+
 return json_encode($carriers->all()); // decode Carrier object class to json
 ```
 
@@ -102,6 +120,7 @@ The system will search for the couriers with the best price for the shipment of 
 use MwSpace\Packlink\Models\Shipment;
 
 $shipments = Shipment::all(); // get all shipments with default filter [all]
+
 return json_encode($shipments); // decode Shipment object class to json
 ```
 
@@ -115,6 +134,7 @@ The system checks the tax code by confirming the captcha through Api Vision. Fil
 use MwSpace\Packlink\Models\Shipment;
 
 $shipment = Shipment::find('YOUR_SHIPMENT_ID'); // find shipment by id
+
 return json_encode($shipment); // decode Shipment object class to json
 ```
 
@@ -127,6 +147,7 @@ with collection and exchange points.
 use MwSpace\Packlink\Models\Shipment;
 
 $shipment = Shipment::where('status','READY_TO_PURCHASE');
+
 return json_encode($shipment); // decode Shipment object class to json
 ```
 
@@ -140,6 +161,7 @@ use MwSpace\Packlink\Models\Shipment;
 private $shipment = [];
 
 $shipment = Shipment::create($this->shipment); // create new Shipment by Model Class
+
 return json_encode($shipment); // decode Shipment object class to json
 ```
 
@@ -152,9 +174,11 @@ Create method insert many data to array. Please see all data needed at
 use MwSpace\Packlink\Shipment;
 
 $shipment = Shipment::find('YOUR_SHIPMENT_ID'); // find shipment by id
+
 $update = $shipment->update([
     "content" => "New awesome t-shirt" // update shipping data
 ]);
+
 return json_encode($update); // decode Shipment object class to json
 ```
 
@@ -163,7 +187,8 @@ return json_encode($update); // decode Shipment object class to json
 ```php
 use MwSpace\Packlink\Models\Shipment;
 
-$shipment = Shipment::find('IT2021PRO0002911469'); // find shipment by id
+$shipment = Shipment::find('YOUR_SHIPMENT_ID'); // find shipment by id
+
 $shipment->delete(); // delete shipping record by id if draft
 ```
 
@@ -173,6 +198,7 @@ $shipment->delete(); // delete shipping record by id if draft
 use MwSpace\Packlink\Warehouse;
 
 $warehouses = Warehouse::all(); // get all warehouses
+
 return json_encode($warehouses); // decode Warehouse object class to json
 ```
 
@@ -182,6 +208,7 @@ return json_encode($warehouses); // decode Warehouse object class to json
 use MwSpace\Packlink\Warehouse;
 
 $warehouse = Warehouse::find('YOUR_WAREHOUSE_ID'); // find warehouse by id
+
 return json_encode($warehouse); // decode Warehouse object class to json
 ```
 
@@ -193,6 +220,7 @@ use MwSpace\Packlink\Warehouse;
 private $warehouse = [];
 
 $warehouse = Warehouse::create($this->warehouse); // create new Warehouse by Model Class
+
 return json_encode($warehouse); // decode Warehouse object class to json
 ```
 
@@ -205,9 +233,11 @@ Create method insert many data to array. Please see all data needed at
 use MwSpace\Packlink\Warehouse;
 
 $warehouse = Warehouse::find('YOUR_WAREHOUSE_ID'); // find warehouse by id
+
 $update = $warehouse->update([
     "alias" => "New awesome t-shirt" // update warehouse data
 ]);
+
 return json_encode($update); // decode Warehouse object class to json
 ```
 
@@ -217,6 +247,7 @@ return json_encode($update); // decode Warehouse object class to json
 use MwSpace\Packlink\Warehouse;
 
 $warehouse = Warehouse::find('YOUR_WAREHOUSE_ID'); // find warehouse by id
+
 $warehouse->setDefault(); // set default warehouse record
 ```
 
@@ -226,6 +257,7 @@ $warehouse->setDefault(); // set default warehouse record
 use MwSpace\Packlink\Warehouse;
 
 $warehouse = Warehouse::find('YOUR_WAREHOUSE_ID'); // find warehouse by id
+
 $warehouse->delete(); // delete warehouse record by id if > 1
 ```
 
@@ -233,7 +265,7 @@ $warehouse->delete(); // delete warehouse record by id if > 1
 
 It matters Automatically import or manually create your national and international shipments.
 
-Professionalism Professionalism Choose from a wide variety of transport services at the best prices.
+Professionalism Choose from a wide variety of transport services at the best prices.
 
 Fast and flexible Fast and flexible Save time with the massive management of your shipments: print several labels at the
 same time, or modify and pay for several shipments in one go.

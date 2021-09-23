@@ -1,5 +1,6 @@
 <?php namespace MwSpace\Packlink\Models;
 
+use MwSpace\Packlink\Exceptions\Handler;
 use MwSpace\Packlink\Instance;
 
 /**
@@ -81,6 +82,10 @@ final class Carrier extends Instance
     public final function all(): array
     {
         self::$instance = new Instance;
+
+        if (!self::$from) throw new Handler('from address has been required, please read the doc');
+
+        if (!self::$to) throw new Handler('to address has been required, please read the doc');
 
         foreach (self::$instance->response(
             self::$instance->call('services',
