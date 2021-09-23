@@ -351,7 +351,7 @@ the [MwSpace Website](https://mwspace.com/it).
 If you discover a security vulnerability within **mwspace/packlink-php**, please send an e-mail to Dev team
 via [dev@mwspace.com](mailto:dev@mwspace.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## License 
 
 The **mwspace/packlink-php** is application programming interface licensed under
 the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).
