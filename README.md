@@ -114,6 +114,43 @@ return json_encode($carriers->all()); // decode Carrier object class to json
 
 The system will search for the couriers with the best price for the shipment of weight.
 
+### 🗺 All Postal Zones:
+
+```php
+use MwSpace\Packlink\Models\PostalZone;
+
+$postalzones = PostalZone::all(); // get all postal zones with default filter [all]
+
+return json_encode($postalzones); // decode PostalZone object class to json
+```
+
+The system will return all countries (iso code) available for shipment
+
+### 🗺 All Postal Code:
+
+```php
+use MwSpace\Packlink\Models\PostalCode;
+
+$postalcodes = PostalCode::all(); // get all postal codes with default filter [all]
+
+return json_encode($postalcodes); // decode PostalCode object class to json
+```
+
+The system will return all postal code (zip code) available for shipment
+
+### 🗺 Get Postal Code:
+
+```php
+use MwSpace\Packlink\Models\PostalCode;
+
+$postalcode = PostalCode::get('YOUR_ZIP_CODE'); // get postal code by query filter [q]
+
+return json_encode($postalcode); // decode PostalCode object class to json
+```
+
+The system will return postal code (zip code) available for shipment by query search. You can use this function also for
+validate your zip code.
+
 ### 📦 All Shipments:
 
 ```php
@@ -351,7 +388,7 @@ the [MwSpace Website](https://mwspace.com/it).
 If you discover a security vulnerability within **mwspace/packlink-php**, please send an e-mail to Dev team
 via [dev@mwspace.com](mailto:dev@mwspace.com). All security vulnerabilities will be promptly addressed.
 
-## License 
+## License
 
 The **mwspace/packlink-php** is application programming interface licensed under
 the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt).

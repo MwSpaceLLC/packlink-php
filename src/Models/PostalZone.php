@@ -1,7 +1,6 @@
-<?php namespace MwSpace\Packlink;
+<?php namespace MwSpace\Packlink\Models;
 
-use MwSpace\Packlink\Exceptions\Handler;
-use MwSpace\Packlink\Traits\Http;
+use MwSpace\Packlink\Instance;
 
 /**
  * @copyright 2021 | MwSpace llc, srl
@@ -26,47 +25,43 @@ use MwSpace\Packlink\Traits\Http;
  * Released, developed and maintain by MwSpace llc, srl.
  *
  */
-class Instance
+final class PostalZone extends Instance
 {
-    use Http;
-
     /**
-     * @var string
+     * @return PostalZone[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
      */
-    protected static
-        $platform = 'PRO',
-        $language = 'it_IT',
-        $platform_country = 'IT',
-        $platform_postalzone = '113',
-        $source = 'module_prestashop';
-
-
-    /** @var  $instance Instance * */
-    protected static $instance;
-
-    /**
-     * Connection base url to packlink pro
-     */
-    protected const BASE_URL = 'https://api.packlink.com/';
-
-    /**
-     * Connection to cdn url to packlink pro
-     */
-    protected const CDN_URL = 'https://cdn.packlink.com/apps/';
-
-    /**
-     * Packlink API version
-     */
-    protected const API_VERSION = 'v1/';
-
-    /**
-     * @throws Handler
-     */
-    public function __construct()
+    public static final function all(): array
     {
-        if (!isset(self::$Apy_Key)) throw new Handler(
-            "API KEY MUST BE SET AS \MwSpace\Packlink::setApiKey('YOUR_API_KEY');"
-        );
+        self::$instance = new Instance;
+
+        foreach (self::$instance->response(
+            self::$instance->call('locations/postalzones/origins', [
+                'language' => self::$language,
+            ])
+        ) as $postalzone) {
+            self::$collect[] = new PostalZone($postalzone);
+        }
+
+        return self::$collect;
+
     }
+
+    /**
+     * @param array $data
+     * @throws \MwSpace\Packlink\Exceptions\Handler
+     */
+    public function __construct(array $data = [])
+    {
+        parent::__construct();
+
+        foreach ($data as $key => $value) {
+            $this->$key = $value;
+        }
+    }
+
+    /** @var  $collect PostalZone[] * */
+    private static $collect = [];
 
 }
