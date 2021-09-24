@@ -34,6 +34,8 @@ final class PostalCode extends Instance
      */
     public static final function all(): array
     {
+        self::$instance = new Instance;
+
         foreach (self::$instance->response(
             self::$instance->call('locations/postalcodes', [
                 'postalzone' => self::$platform_postalzone,
