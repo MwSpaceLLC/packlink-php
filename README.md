@@ -4,7 +4,7 @@
 
 PHP Version  | Status  | Require  | version
 ------------ | ------- | -------- | -------
-PHP >=7.0    | @Beta   | Composer | 2.0.0
+PHP >=7.0    | @Beta   | Composer | 2.0.1
 
 [![Build Status](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)
 [![Latest Stable Version](http://poser.pugx.org/mwspace/packlink-php/v)](https://packagist.org/packages/mwspace/packlink-php)
