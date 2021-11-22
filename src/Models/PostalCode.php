@@ -61,6 +61,17 @@ final class PostalCode extends Instance
     }
 
     /**
+     * @param string $postalcode
+     * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \MwSpace\Packlink\Exceptions\Handler
+     */
+    public static final function exits(string $postalcode): bool
+    {
+        return !empty(self::get($postalcode));
+    }
+
+    /**
      * @param array $data
      * @throws \MwSpace\Packlink\Exceptions\Handler
      */
