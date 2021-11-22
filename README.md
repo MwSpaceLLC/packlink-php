@@ -151,6 +151,19 @@ return json_encode($postalcode); // decode PostalCode object class to json
 The system will return postal code (zip code) available for shipment by query search. You can use this function also for
 validate your zip code.
 
+### 🗺 Check Postal Code:
+
+```php
+use MwSpace\Packlink\Models\PostalCode;
+
+$postalcode = PostalCode::exits('YOUR_ZIP_CODE'); // get postal code by query filter [q]
+
+return is_bool($postalcode); // check if exists postal code
+```
+
+The system will return postal code (zip code) available for shipment by query search. You can use this function also for
+validate your zip code.
+
 ### 📦 All Shipments:
 
 ```php
@@ -197,7 +210,7 @@ use MwSpace\Packlink\Models\Shipment;
 
 private $shipment = [];
 
-$shipment = Shipment::create($this->shipment); // create new Shipment by Model Class
+$shipment = Shipment::create($shipment); // create new Shipment by Model Class
 
 return json_encode($shipment); // decode Shipment object class to json
 ```
@@ -256,7 +269,7 @@ use MwSpace\Packlink\Warehouse;
 
 private $warehouse = [];
 
-$warehouse = Warehouse::create($this->warehouse); // create new Warehouse by Model Class
+$warehouse = Warehouse::create($warehouse); // create new Warehouse by Model Class
 
 return json_encode($warehouse); // decode Warehouse object class to json
 ```
