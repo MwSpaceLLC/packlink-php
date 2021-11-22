@@ -142,12 +142,13 @@ final class Shipment extends Instance
         parent::__construct();
 
         foreach ($data as $key => $value) {
-
             if ($key === 'packlink_reference' || $key === 'reference') {
                 $this->id = $value;
             }
 
-            $this->$key = $value;
+            if ($key !== "platform" && $key !== 'platform_country' && $key !== 'source') {
+                $this->$key = $value;
+            }
         }
     }
 

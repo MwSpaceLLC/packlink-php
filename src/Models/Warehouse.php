@@ -163,7 +163,9 @@ final class Warehouse extends Instance
         parent::__construct();
 
         foreach ($data as $key => $value) {
-            $this->$key = $value;
+            if ($key !== "platform" && $key !== 'platform_country' && $key !== 'source') {
+                $this->$key = $value;
+            }
         }
     }
 

@@ -37,8 +37,6 @@ trait Model
     {
         $self = (new self($data));
 
-//        dd($self);
-
         $save = $self->save();
 
         if (!isset($save['id']) && !isset($save['reference'])) {
