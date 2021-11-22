@@ -156,7 +156,7 @@ validate your zip code.
 ```php
 use MwSpace\Packlink\Models\PostalCode;
 
-$postalcode = PostalCode::exits('YOUR_ZIP_CODE'); // get postal code by query filter [q]
+$postalcode = PostalCode::exists('YOUR_ZIP_CODE'); // get postal code by query filter [q]
 
 return is_bool($postalcode); // check if exists postal code
 ```
