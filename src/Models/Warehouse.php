@@ -23,7 +23,7 @@ use MwSpace\Packlink\Traits\Model;
  * This class was developed to connect PHP frameworks with the packlink pro
  * shipping system. This library is unofficial and uses the connection protocols
  * of the cms. No copyright infringement.
- * Released, developed and maintain by MwSpace llc, srl .
+ * Released, developed and maintain by MwSpace llc, srl.
  *
  */
 final class Warehouse extends Instance
