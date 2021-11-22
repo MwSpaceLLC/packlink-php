@@ -37,8 +37,7 @@ final class PostalCode extends Instance
         self::$instance = new Instance;
 
         foreach (self::$instance->response(
-            self::$instance->call('locations/postalcodes', [
-                'postalzone' => self::$platform_postalzone,
+            self::$instance->call('locations/postalcodes/country/' . self::$platform_country, [
                 'q' => self::$query ?? '',
             ])
         ) as $postalcode) {
