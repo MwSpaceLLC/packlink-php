@@ -15,6 +15,7 @@ return array(
     "name" => "",
     "address" => "Via libero temolo, 4 - Palazzo Regus",
     "city" => "Milano",
+    "state" => "Milano",
     "country" => "IT",
     "postal_code" => "20126",
     "phone" => "02 3056 7684",

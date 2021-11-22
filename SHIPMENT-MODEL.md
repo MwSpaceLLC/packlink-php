@@ -32,6 +32,7 @@ array:21 [▼
     "street2" => null
     "zi p_code" => "06129"
     "city" => "Perugia"
+    "state" => "Perugia"
     "country" => "IT"
     "phone" => "02 3056 7684"
     "email" => "dev@mwspace.com"
@@ -44,6 +45,7 @@ array:21 [▼
     "street2" => "Presso MwSpace srl"
     "zip_code" => "06073"
     "city" => "Perugia"
+    "state" => "Perugia"
     "country" => "IT"
     "phone" => "02 3056 7684"
     "email" => "dev@mwspace.com"
