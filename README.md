@@ -1,6 +1,6 @@
 ## Nodejs Version <img src="https://nodejs.org/static/images/logos/nodejs-new-black.svg" width="80"/>
 
-> Small Javascript library [packlink-js](https://github.com/MwSpaceLLC/packlink-js)
+> Go to use library [packlink-js](https://github.com/MwSpaceLLC/packlink-js)
 
 # Carrier Service <img src="https://cdn.packlink.com/apps/giger/logos/packlink-pro.svg" width="200"/>
 
