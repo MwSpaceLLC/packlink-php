@@ -1,16 +1,20 @@
-# Carrier Service <img src="https://cdn.packlink.com/apps/giger/logos/packlink-pro.svg" width="200">
+# Carrier Service <img src="https://cdn.packlink.com/apps/giger/logos/packlink-pro.svg" width="200"/>
 
 > Small PHP library for use [Packlink PRO](https://pro.packlink.it/).
 
-PHP Version  | Status  | Require  | version
------------- | ------- | -------- | -------
-PHP >=7.0    | @Beta   | Composer | 2.7.1
+| PHP Version | Status | Require  | version |
+|-------------|--------|----------|---------|
+| PHP >=7.0   | @Beta  | Composer | 2.7.1   |
 
 [![Build Status](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)](https://travis-ci.com/mwspace/packlink-php.svg?branch=main)
 [![Latest Stable Version](http://poser.pugx.org/mwspace/packlink-php/v)](https://packagist.org/packages/mwspace/packlink-php)
 [![Total Downloads](http://poser.pugx.org/mwspace/packlink-php/downloads)](https://packagist.org/packages/mwspace/packlink-php)
 [![Latest Unstable Version](http://poser.pugx.org/mwspace/packlink-php/v/unstable)](https://packagist.org/packages/mwspace/packlink-php)
 [![License](http://poser.pugx.org/mwspace/packlink-php/license)](https://packagist.org/packages/mwspace/packlink-php)
+
+## Nodejs Version <img src="https://nodejs.org/static/images/logo.svg" width="80"/>
+
+> Small Javascript library [packlink-js](https://github.com/MwSpaceLLC/packlink-js)
 
 ![image](https://user-images.githubusercontent.com/29952045/129723631-f52d3795-2033-4217-812b-46113256a62e.png)
 
@@ -58,7 +62,7 @@ use MwSpace\Packlink\Models\Carrier;
 
 private $packages = [[]];
 
-$carriers = Carrier::ship($this->parcels);
+$carriers = Carrier::ship($this->packages);
 
 $carriers->from(array( // get prices for parcels by zip code from => to
     'country' => 'IT',
@@ -82,9 +86,9 @@ insert many data to array. Please see all data needed at
 ```php
 use MwSpace\Packlink\Models\Carrier;
 
-private $parcels = [[]];
+private $packages = [[]];
 
-$carriers = Carrier::ship($this->parcels);
+$carriers = Carrier::ship($this->packages);
 
 return json_encode($carriers->find('YOUR_CARRIER_ID')); // decode Carrier object class to json
 ```
