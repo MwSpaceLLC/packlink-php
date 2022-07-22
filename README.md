@@ -12,7 +12,7 @@
 [![Latest Unstable Version](http://poser.pugx.org/mwspace/packlink-php/v/unstable)](https://packagist.org/packages/mwspace/packlink-php)
 [![License](http://poser.pugx.org/mwspace/packlink-php/license)](https://packagist.org/packages/mwspace/packlink-php)
 
-## Nodejs Version <img src="https://nodejs.org/static/images/logo.svg" width="80"/>
+## Nodejs Version <img src="https://nodejs.org/static/images/logos/nodejs-new-black.svg" width="80"/>
 
 > Small Javascript library [packlink-js](https://github.com/MwSpaceLLC/packlink-js)
 
